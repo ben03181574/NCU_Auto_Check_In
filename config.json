@@ -1,0 +1,13 @@
+{
+  "driver_path": "/path/to/driver",
+  "account": "{NCU PORTAL ACCOUNT}",
+  "passwd": "{NCU PORTAL PASSWORD}",
+  "case": "工讀：1122資管系課程助教1",
+  "work": "協助課程業務",
+  "work_dates": ["2024/4/5","2024/4/6","2024/4/7"],
+  "work_hour": 20,
+  "max_hour_per_day": 8,
+  "send_email": "True",
+  "email_account": "{EMAIL ACCOUNT}",
+  "email_passwd": "{EMAIL PASSWORD}"
+}
