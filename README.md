@@ -2,7 +2,7 @@
 
 <p align="center">  
 <a title="Python 3.9" href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/python-3.9-blue.svg" alt="Python 3.9" />
+    <img src="https://img.shields.io/badge/python-3.10-blue.svg" alt="Python 3.10" />
 </a>
 <a title="MIT License" href="LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
@@ -62,6 +62,8 @@ python check_out.py
 ## 補充教學
 
 ### 新增 telegram bot、取得 token、chat Id 
+
+
 - telegram 搜尋欄搜尋  ```@BotFather``` 
 
 - 按 ```/start```
