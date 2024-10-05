@@ -68,8 +68,8 @@ python check_out.py
 <img src="https://i.imgur.com/OsqLOHX.png" width="250px"/>
 
 - 創造機器人 ```/newbot```
-    - 輸入機器人的name
-    - 成功後即可獲得機器人的連結 & token 
+    - 輸入機器人的 name
+    - 成功後即可獲得機器人的連結 & token(很重要!!)
 
  </br><img src="https://user-images.githubusercontent.com/85755825/148934909-3f610766-0c6c-4061-b4fe-49fb84123c1a.JPG" width="250px"/><img src="https://user-images.githubusercontent.com/85755825/148937414-eda0bb71-ef42-4423-846d-f6f9de4689ba.JPG" width="250px"/>
 
@@ -77,9 +77,13 @@ python check_out.py
     - 選擇剛才創造的bot
     <img src="https://i.imgur.com/v2BlNnQ.png" width="300px"/>
 
-- 切換到 `@yourbot`，就可以看到打卡時間了喔!
-        <img src="https://hackmd.io/_uploads/r1rJjC0CR.png" width="300px" />
-
+- 切換到 `@yourbot`，輸入 `/start` 開始對話
+    </br><img src="https://hackmd.io/_uploads/r1rJjC0CR.png" width="300px" />
+- 取得 chat id :在瀏覽器輸入以下url，會回傳 JSON 格式的資料，即可取得 chat id
+    - URL : `https://api.telegram.org/bot{our_bot_token}/getUpdates`
+    - 示意圖
+    </br><img src="https://hackmd.io/_uploads/By5G3AC00.png" width="300px" />
+    
 ### 設定應用程式密碼（Google）：
 - 請先前往[此處](https://myaccount.google.com/apppasswords "Google 應用程式密碼")登入帳號後，請先輸入密碼名稱，點選 __建立__ 後，即會看到一組十六字元組成之密碼，請將其複製並貼於 ```email_passwd``` 欄位。  
 <p align="center"><img src="./img/app_password.png" alt="app_password" style="height: 350px;"/></p>
