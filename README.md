@@ -83,7 +83,7 @@ python check_out.py
     - URL : `https://api.telegram.org/bot{our_bot_token}/getUpdates`
     - 示意圖
     </br><img src="https://hackmd.io/_uploads/By5G3AC00.png" width="300px" />
-    
+    > [參考操作連結](https://gist.github.com/nafiesl/4ad622f344cd1dc3bb1ecbe468ff9f8a)
 ### 設定應用程式密碼（Google）：
 - 請先前往[此處](https://myaccount.google.com/apppasswords "Google 應用程式密碼")登入帳號後，請先輸入密碼名稱，點選 __建立__ 後，即會看到一組十六字元組成之密碼，請將其複製並貼於 ```email_passwd``` 欄位。  
 <p align="center"><img src="./img/app_password.png" alt="app_password" style="height: 350px;"/></p>
