@@ -61,7 +61,7 @@ python check_out.py
 
 ## 補充教學
 
-### 新增 telegram bot
+### 新增 telegram bot、取得 token、chat Id 
 - telegram 搜尋欄搜尋  ```@BotFather``` 
 
 - 按 ```/start```
