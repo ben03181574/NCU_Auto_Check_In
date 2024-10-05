@@ -78,7 +78,7 @@ python check_out.py
     <img src="https://i.imgur.com/v2BlNnQ.png" width="300px"/>
 
 - 切換到 `@yourbot`
-        <img src="https://hackmd.io/_uploads/SkJ-KRC0C.png" />
+        <img src="https://hackmd.io/_uploads/SkJ-KRC0C.png" width="300px" />
 
 ### 設定應用程式密碼（Google）：
 - 請先前往[此處](https://myaccount.google.com/apppasswords "Google 應用程式密碼")登入帳號後，請先輸入密碼名稱，點選 __建立__ 後，即會看到一組十六字元組成之密碼，請將其複製並貼於 ```email_passwd``` 欄位。  
