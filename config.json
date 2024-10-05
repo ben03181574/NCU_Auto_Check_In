@@ -2,12 +2,16 @@
   "driver_path": "/path/to/driver",
   "account": "{NCU PORTAL ACCOUNT}",
   "passwd": "{NCU PORTAL PASSWORD}",
-  "case": "工讀：1122資管系課程助教1",
-  "work": "協助課程業務",
-  "work_dates": ["2024/4/5","2024/4/6","2024/4/7"],
+  "case": "工讀：1131資管系課程助教1",
+  "work": "協助課程事務",
+  "work_dates": ["2024/10/2","2024/10/3","2024/10/4"],
   "work_hour": 20,
   "max_hour_per_day": 8,
-  "send_email": "True",
+  "send_email": "False",
   "email_account": "{EMAIL ACCOUNT}",
-  "email_passwd": "{EMAIL PASSWORD}"
+  "email_passwd": "{EMAIL PASSWORD}",
+  "telegram_bot": "True",
+  "telegram_bot_token" :"{telegram_bot_token}",
+  "telegram_chat_id" :"{telegram_chat_id}}"
+
 }
