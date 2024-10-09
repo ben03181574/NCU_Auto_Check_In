@@ -17,6 +17,21 @@ from smtplib import SMTPAuthenticationError
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+from telegram import Bot
+from telegram.ext import Updater, CommandHandler
+
+
+
+
+# check for send_telegram_message
+def send_telegram_message(message):
+    try:
+        bot.send_message(chat_id=telegram_chat_id, text=message)
+        print(f"=====Telegram 訊息傳送成功: {message}=====")
+    except Exception as e:
+        print(f"=====Telegram 訊息傳送失敗: {e}=====")
+
+
 def send_email(args, title):
 
     # create MIMEMultipart
@@ -77,10 +92,13 @@ def check_in(driver, args):
         .click(signin_btn) \
         .perform()
     print("=====人事簽到成功=====")
-    
-    if args['send_email']:
-        send_email(args, "簽到成功-"+current_time)
-
+    print("args['send_telegram_bot']: ",args['send_telegram_bot'])
+    # if args['send_email']:
+    #     send_email(args, "簽到成功-"+current_time)
+    if args['send_telegram_bot'] == "True":
+        print("簽到成功")
+        current_time = time.strftime("%Y/%m/%d %H:%M:%S", time.localtime())
+        send_telegram_message(f"簽到成功，簽到時間為 {current_time}")
 def check_out(driver, args):
     
     reset_btn = driver.find_element(By.ID, "resetTime")
@@ -93,7 +111,6 @@ def check_out(driver, args):
         signout_btn = signout_btn[0]
     else:
         raise NoSuchElementException("=====人事尚未簽到=====")        
-    
     ActionChains(driver) \
         .click(reset_btn) \
         .send_keys_to_element(work_field, args['work']) \
@@ -101,9 +118,11 @@ def check_out(driver, args):
         .perform()
     print("=====人事簽退成功=====")
     
-    if args['send_email']:
-        send_email(args, "簽退成功-"+current_time)
-
+    # if args['send_email']:
+    #     send_email(args, "簽退成功-"+current_time)
+    if args['send_telegram_bot'] == "True":
+        current_time = time.strftime("%Y/%m/%d %H:%M:%S", time.localtime())
+        send_telegram_message(f"簽退成功，簽退時間為 {current_time}")
 def main(args, mission):
     try:
         service = Service(executable_path=args['driver_path']+'/msedgedriver.exe')
@@ -153,6 +172,15 @@ if __name__ == "__main__":
     with open(os.path.dirname(__file__)+'./config.json', 'r', encoding='utf-8') as f:
         args.update(json.load(f))
 
+    # telegram bot setting 
+    telegram_chat_id=args['telegram_chat_id']
+    telegram_bot_token=args['telegram_bot_token']
+    bot = Bot(token=telegram_bot_token)
+
+    updater = Updater(token=telegram_bot_token, use_context=True)
+    dispatcher = updater.dispatcher
+    # telegram bot setting 
+
     work_hours = []
     work_hour = args["work_hour"]
     max_hour_per_day = args["max_hour_per_day"]
@@ -183,6 +211,7 @@ if __name__ == "__main__":
                                                 int(work_dates[i].split('/')[1]), \
                                                 int(work_dates[i].split('/')[2]), \
                                                 9+work_hours[i], 0, 0), \
+         
                               args=[args, "check-out"])
 
         scheduler.start()

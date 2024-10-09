@@ -2,7 +2,7 @@
 
 <p align="center">  
 <a title="Python 3.9" href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/python-3.9-blue.svg" alt="Python 3.9" />
+    <img src="https://img.shields.io/badge/python-3.10-blue.svg" alt="Python 3.10" />
 </a>
 <a title="MIT License" href="LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
@@ -36,7 +36,9 @@ pip install -r requirements.txt
 - ```send_email```：是否需要郵件通知
 - ```email_account```：電子郵件帳號（如未使用郵件通知，則不需設置）
 - ```email_passwd```：電子郵件密碼（如未使用郵件通知，則不需設置）
-
+- ```send_telegram_bot```: 是否需要 telegram_bot 通知
+- ```telegram_bot_token``` :telegram_bot 的 API token
+- ```telegram_chat_id``` : telegram bot 的 chat id
 ## 使用說明
 
 ### 定時簽到：
@@ -58,6 +60,32 @@ python check_out.py
 - 如需使用 Email 郵件通知，請 [__設定應用程式密碼__](https://myaccount.google.com/apppasswords "Google 應用程式密碼") 或 __取消兩步驟驗證功能__。
 
 ## 補充教學
+
+### 新增 telegram bot、取得 token、chat Id 
+
+
+- telegram 搜尋欄搜尋  ```@BotFather``` 
+
+- 按 ```/start```
+<img src="https://i.imgur.com/OsqLOHX.png" width="250px"/>
+
+- 創造機器人 ```/newbot```
+    - 輸入機器人的 name
+    - 成功後即可獲得機器人的連結 & token(很重要!!)
+
+ </br><img src="https://user-images.githubusercontent.com/85755825/148934909-3f610766-0c6c-4061-b4fe-49fb84123c1a.JPG" width="250px"/><img src="https://user-images.githubusercontent.com/85755825/148937414-eda0bb71-ef42-4423-846d-f6f9de4689ba.JPG" width="250px"/>
+
+- 接下來輸入 `/mybots`
+    - 選擇剛才創造的bot
+    <img src="https://i.imgur.com/v2BlNnQ.png" width="300px"/>
+
+- 切換到 `@yourbot`，輸入 `/start` 開始對話
+    </br><img src="https://hackmd.io/_uploads/r1rJjC0CR.png" width="300px" />
+- 取得 chat id :在瀏覽器輸入以下url，會回傳 JSON 格式的資料，即可取得 chat id
+    - URL : `https://api.telegram.org/bot{our_bot_token}/getUpdates`
+    - 示意圖
+    </br><img src="https://hackmd.io/_uploads/By5G3AC00.png" width="300px" />
+    > [參考操作連結](https://gist.github.com/nafiesl/4ad622f344cd1dc3bb1ecbe468ff9f8a)
 ### 設定應用程式密碼（Google）：
 - 請先前往[此處](https://myaccount.google.com/apppasswords "Google 應用程式密碼")登入帳號後，請先輸入密碼名稱，點選 __建立__ 後，即會看到一組十六字元組成之密碼，請將其複製並貼於 ```email_passwd``` 欄位。  
 <p align="center"><img src="./img/app_password.png" alt="app_password" style="height: 350px;"/></p>

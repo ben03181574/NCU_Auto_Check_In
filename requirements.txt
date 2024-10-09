@@ -1,2 +1,3 @@
 selenium
 apscheduler
+python-telegram-bot
