@@ -9,6 +9,34 @@
 </a>
 </p>
 
+# Auto Check in v2
+
+自動化簽到流程，透過執行 `auto_check_in_v2.py` 完成 __定時簽到__。
+
+## 環境設置
+請於裝有 Python 的機器中執行以下命令：
+```bash 
+pip install -r requirements.txt 
+```
+## 參數設置
+請於 `config_v2.json` 檔案中輸入相關參數，參數說明如下：  
+- ```username```：中央大學 Portal 網站的帳號
+    - 範例："112423000"
+- ```password```：中央大學 Portal 網站的密碼
+    - 範例："P@ssw0rd"
+- ```ParttimeUsuallyId```：欲簽到的工作/計畫編號
+
+    <p><img src="./img/parttimeId.png" alt="app_password" style="height: 150px;"/></p>
+    - 範例："256529"
+- ```AttendWork```：簽退時候填寫的工作內容
+    - 範例："協助課程業務"
+- ```checkin_datetimes```：簽到時間
+    - 範例：["2024/10/13/9/00","2024/10/14/9/00"]
+- ```checkout_datetimes```：簽退時間
+    - 範例：["2024/10/13/17/00","2024/10/14/17/00"]
+
+# Auto Check in v1
+
 自動化簽到流程，透過執行 `auto_check_in.py` 完成 __定時簽到__，或透過 `check_in.py` 完成 __快速簽到__。
 
 ## 環境設置
