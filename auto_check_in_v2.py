@@ -5,6 +5,17 @@ import os
 import json
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.schedulers.blocking import BlockingScheduler
+import time
+from telegram import Bot
+from telegram.ext import Updater
+
+# check for send_telegram_message
+def send_telegram_message(message):
+    try:
+        bot.send_message(chat_id=telegram_chat_id, text=message)
+        print(f"=====Telegram 訊息傳送成功: {message}=====")
+    except Exception as e:
+        print(f"=====Telegram 訊息傳送失敗: {e}=====")
 
 def login():
     # 建立 session 共享 Cookie
@@ -87,7 +98,8 @@ def signin(session, id, token_value):
     }
     
     login_response = session.post('https://cis.ncu.edu.tw/HumanSys/student/stdSignIn_detail', data=login_payload)
-
+    current_time = time.strftime("%Y/%m/%d %H:%M:%S", time.localtime())
+    send_telegram_message(f"簽到成功，簽到時間為 {current_time}")
     print("簽到完成...")
 
 # 使用 CSRF Token 發送 POST 請求進行登入
@@ -101,7 +113,8 @@ def signout(session, id, token_value, idNo, attendwork):
     }
     
     login_response = session.post('https://cis.ncu.edu.tw/HumanSys/student/stdSignIn_detail', data=login_payload)
-
+    current_time = time.strftime("%Y/%m/%d %H:%M:%S", time.localtime())
+    send_telegram_message(f"簽退成功，簽退時間為 {current_time}")
     print("簽退完成...")
 
 def main(PARAMS, mission):
@@ -115,11 +128,21 @@ def main(PARAMS, mission):
 if __name__ == "__main__":
     
     PARAMS = dict()
+    
     with open(os.path.dirname(__file__)+'./config_v2.json', 'r', encoding='utf-8') as f:
         PARAMS.update(json.load(f))
 
     scheduler = BlockingScheduler(timezone="Asia/Taipei")
 
+    # telegram bot setting 
+    telegram_chat_id=PARAMS['telegram_chat_id']
+    telegram_bot_token=PARAMS['telegram_bot_token']
+    bot = Bot(token=telegram_bot_token)
+
+    updater = Updater(token=telegram_bot_token, use_context=True)
+    dispatcher = updater.dispatcher
+    # telegram bot setting 
+    
     for datetime_str in PARAMS['checkin_datetimes']:
         date_parts = [int(part) for part in datetime_str.split('/')]
         run_date = datetime(date_parts[0], date_parts[1], date_parts[2], date_parts[3], date_parts[4])
