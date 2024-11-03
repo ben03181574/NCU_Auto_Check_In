@@ -34,7 +34,8 @@ pip install -r requirements.txt
     - 範例：["2024/10/13/9/00","2024/10/14/9/00"]
 - ```checkout_datetimes```：簽退時間
     - 範例：["2024/10/13/17/00","2024/10/14/17/00"]
-
+- ```telegram_bot_token``` :telegram_bot 的 API token
+- ```telegram_chat_id``` : telegram bot 的 chat id
 # Auto Check in v1
 
 自動化簽到流程，透過執行 `auto_check_in.py` 完成 __定時簽到__，或透過 `check_in.py` 完成 __快速簽到__。
